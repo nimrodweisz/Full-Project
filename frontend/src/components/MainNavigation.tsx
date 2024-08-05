@@ -102,7 +102,7 @@ export default function DrawerAppBar(props: Props) {
         
         <Toolbar>
         <Typography >
-        {dashboardData.length} מספר כלים נוכחי במערכת: כ
+        {dashboardData.length  } :מספר כלים נוכחי במערכת
       </Typography>
           <IconButton
             color="inherit"

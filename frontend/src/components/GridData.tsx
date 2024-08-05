@@ -1,4 +1,5 @@
 
+
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
@@ -25,7 +26,7 @@ const columns: GridColDef[] = [
 const GridFull: React.FC<{rows: any[]}> = ({rows}) => {
 
     return (
-        <Box sx={{ height:400 ,width: '100%'}}>
+        <Box sx={{height:'85vh'}}>
           <DataGrid
             rows={rows}
             columns={columns}
@@ -33,7 +34,7 @@ const GridFull: React.FC<{rows: any[]}> = ({rows}) => {
             initialState={{
               pagination: {
                 paginationModel: {
-                  pageSize: 5,
+                  pageSize: 20,
                 },
               },
             }}

@@ -31,7 +31,7 @@ exports.forCarContext = async(req,res) => {
     res.send(cars)
 }
 exports.addCar = async(req,res) => {
-    const {gdud,makat,kashir,carNumber}= req.body
+    const {gdud,makat,kshirot,carNumber}= req.body
     const existingCar = await carData.findOne({ carNumber });
     
     try {
@@ -40,10 +40,13 @@ exports.addCar = async(req,res) => {
              res.status(400).send('car Cannot be saved')
              console.log('not saveeeeed')
         }
+        else if(carNumber.length > 7 || carNumber.length < 6){
+            res.status(403).send('car not saved')
+        }
         else{
             console.log('saved')
-            const newCar = new carData({ gdud, makat, kashir, carNumber });
-         
+            const newCar = new carData({ gdud, makat, kshirot, carNumber });
+            
         await newCar.save();
         res.status(200).json({ message: 'Car added successfully!' });
 

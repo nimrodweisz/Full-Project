@@ -68,7 +68,7 @@ const BarChartComponent: React.FC<BarChartProps> = ({labels,datasetData}) => {
 
 
   return (
-    <Box sx={{height:400}}>
+    <Box >
       <Bar data={data} options={options} />
     </Box>
   );

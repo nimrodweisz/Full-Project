@@ -6,7 +6,7 @@ interface ChartsOverviewDemoProps {
 const ChartsOverviewDemo: React.FC<ChartsOverviewDemoProps> = ({ value }) => {
     return (
       <>
-      <Gauge width={1800}  height={200} value={value} />
+      <Gauge    value={value} />
       
       </>
     );

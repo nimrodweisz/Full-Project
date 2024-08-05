@@ -65,26 +65,27 @@ export const DashBoard: React.FC = () => {
   // let stringsOfLabels = buildArrMakat(dashboardData)
   const stringsOfLabels = buildArrMakat(dashboardData);
   const makats = sumOfmakats(dashboardData, stringsOfLabels);
-return (
+  return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} >
-            <Box >
-              <Clock value={realValue} />
-            </Box>
-          </Grid>
-          
-          <Grid item xs={12} sm={6} >
-            <BarChartComponent datasetData={makats} labels={stringsOfLabels} />
-          </Grid>
+      <Box sx={{ display: "grid", gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', height: '100vh' }}>
+        <Box sx={{height:'50vh'}}>
+          <Box sx={{ height: "35vh", alignContent: "left" }}>
+            <Clock value={realValue} />
+          </Box>
 
-          <Grid item xs={12} sm={6} sx={{width:'40'}}>
-            <GridData rows={gridValues} />
-          </Grid>
-        </Grid>
+          <Box sx={{ height: "70vh", width: "100vh" }}>
+            <BarChartComponent datasetData={makats} labels={stringsOfLabels} />
+          </Box>
+        </Box>
+
+        
+        <Box sx={{ width:'800px', position: 'absolute', bottom: '50px', left: '75%', transform: 'translateX(-50%)' }}>
+          <GridData rows={gridValues}  />
+        </Box>
+        {/* <Box>
+          <Card></Card>
+        </Box> */}
       </Box>
     </>
-  );
-
+);
 };

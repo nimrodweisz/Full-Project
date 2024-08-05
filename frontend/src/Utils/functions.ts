@@ -75,18 +75,22 @@ export function forGrid(arr: Car[]): GridTemplate[] {
     export function getMakats(arr: Car[]): string[]{
    
         let myArray = new Array<string>();
+       
         for(let i: number = 0;i<myArray.length;i++){
             myArray[i] = '';
         }
       
         for (let i = 0; i < arr.length; i++) {
-            if(!myArray.includes(arr[i].makat)){
+            if(!myArray.includes(arr[i].makat) ){
                 myArray.push(arr[i].makat)
             }
             
+            
         }
-        return myArray
+       
         
+        myArray.pop()
+        return myArray
     }
     export function getNewMakats (arr:Car[]):string[]{
         let newArr = new Array<string>(arr.length)
