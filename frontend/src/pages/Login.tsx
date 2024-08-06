@@ -4,6 +4,7 @@ import  Cookies  from "js-cookie";
 import Toast from "../toastStaff/Toast";
 import useToast from "../toastStaff/useToast";
 import {  useState,useEffect } from "react";
+import Cards from "../components/Cards";
 export const Login: React.FC = () => {
   const location = useLocation();
   const {isOpen,showToast,text,textType,setIsOpen} = useToast()
@@ -67,6 +68,7 @@ return;
     margin: "50vh auto",
   };
   return (
+    <>
     <Grid>
       <Paper elevation={10} style={paperStyle}>
         <Typography variant="h6" component="h2">
@@ -84,9 +86,12 @@ return;
           </Grid>
           <Toast message={text} type={textType} isOpen={isOpen} setIsOpen={setIsOpen}/>
         </form>
+       
       </Paper>
+     
+
     </Grid>
-    
+    </>
   );
 
 };

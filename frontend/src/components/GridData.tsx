@@ -26,7 +26,7 @@ const columns: GridColDef[] = [
 const GridFull: React.FC<{rows: any[]}> = ({rows}) => {
 
     return (
-        <Box sx={{height:'85vh'}}>
+        <Box sx={{height:'60vh'}}>
           <DataGrid
             rows={rows}
             columns={columns}

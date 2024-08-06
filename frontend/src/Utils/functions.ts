@@ -17,6 +17,20 @@ function calcPer(part:number,whole:number):number{
     
     return Math.floor(calcPer(counter,arr.length)); 
 }
+export function howMuchKshirim(arr: Car[]): number {
+    let counter: number = 0; 
+
+   
+    for (let i : number = 0; i < arr.length; i++) {
+        if(arr[i].kshirot === '1' || arr[i].kshirot === 'כשיר'){
+            counter++;
+        } 
+
+    }
+    
+    
+    return counter
+}
 export function buildArrMakat(arr: Car[]): string[] {
     let Sarr: string[] = []; 
     for (let i :number = 0; i < arr.length; i++) {

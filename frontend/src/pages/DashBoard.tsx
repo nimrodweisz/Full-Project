@@ -6,12 +6,13 @@ import {
   buildArrMakat,
   sumOfmakats,
   forGrid,
+  howMuchKshirim,
 } from "../Utils/functions";
 import BarChartComponent from "../components/BarData";
 import Clock from "../components/Clock";
 import GridData from "../components/GridData";
 import { useDashboard } from "../store/cars-context";
-
+import Cards from "../components/Cards";
 interface DashBoardProps {
   children?: React.ReactNode;
 }
@@ -73,11 +74,12 @@ export const DashBoard: React.FC<DashBoardProps> = ({children}) => {
   // let stringsOfLabels = buildArrMakat(dashboardData)
   const stringsOfLabels = buildArrMakat(dashboardData);
   const makats = sumOfmakats(dashboardData, stringsOfLabels);
+  const howMuch = howMuchKshirim(dashboardData)
   return (
     <>
       <Box sx={{ display: "grid", gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', height: '100vh' }}>
-        <Box sx={{height:'50vh'}}>
-          <Box sx={{ height: "35vh", alignContent: "left" }}>
+        <Box sx={{height:'25vh'}}>
+          <Box sx={{ height: "25vh", alignContent: "left" }}>
             <Clock value={realValue} />
           </Box>
 
@@ -87,13 +89,18 @@ export const DashBoard: React.FC<DashBoardProps> = ({children}) => {
         </Box>
 
         
-        <Box sx={{ width:'800px', position: 'absolute', bottom: '50px', left: '75%', transform: 'translateX(-50%)' }}>
+        <Box sx={{ width:'800px', position: 'absolute', top: '100px', left: '75%', transform: 'translateX(-50%)' }}>
           <GridData rows={gridValues}  />
         </Box>
-        {/* <Box>
-          <Card></Card>
-        </Box> */}
+       <Box sx={{position:'absolute',top:'800px',display:'flex', flexDirection:'row',justifyContent:'space-between',width:'95%'}}>
+        <Box><Cards whatIs={`${realValue}%`} headLine='אחוז הכלים הכשירים'/></Box>
+        <Box><Cards whatIs={makats.length} headLine="כמות המקטים"/></Box>
+        <Box><Cards whatIs={howMuch} headLine="כמות הכלים הכשירים"/></Box>
+        <Box><Cards whatIs={dashboardData.length} headLine="כמות הכלים במערכת"/></Box>
+       </Box>
+       
       </Box>
+      
       {children}
     </>
 );
