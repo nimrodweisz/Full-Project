@@ -12,8 +12,13 @@ import Clock from "../components/Clock";
 import GridData from "../components/GridData";
 import { useDashboard } from "../store/cars-context";
 
-export const DashBoard: React.FC = () => {
-  const { updateCarId, dashboardData } = useDashboard();
+interface DashBoardProps {
+  children?: React.ReactNode;
+}
+
+export const DashBoard: React.FC<DashBoardProps> = ({children}) => {
+  const { updateCarId,status, dashboardData } = useDashboard();
+  
   // const [dashboardData, setDashboardData] = useState([]);
   const params = useParams();
   const ID = params.userId;
@@ -23,14 +28,17 @@ export const DashBoard: React.FC = () => {
   //   fetch_dashboardData();
   // }, []);
   useEffect(() => {
+
     updateCarId(ID);
   }, []);
   useEffect(() => {
+    
     fetch_dashboard();
   }, [params.userId]);
 
   const navigate = useNavigate();
   const fetch_dashboard = async () => {
+    console.log(status)
     try {
       const response = await fetch("http://localhost:5000/dashboard", {
         credentials: "include",
@@ -44,7 +52,7 @@ export const DashBoard: React.FC = () => {
         }),
       });
 
-      if (response.status === 401) {
+      if (response.status === 401 ) {
         navigate("/login");
         return;
       }
@@ -86,6 +94,7 @@ export const DashBoard: React.FC = () => {
           <Card></Card>
         </Box> */}
       </Box>
+      {children}
     </>
 );
 };

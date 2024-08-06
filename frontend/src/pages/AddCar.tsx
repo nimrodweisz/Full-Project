@@ -82,7 +82,7 @@ const SignUpPage: React.FC = () => {
   };
 
   const [gdud, setGdud] = React.useState("");
-  const [makat, setMakat] = React.useState("adasd");
+  const [makat, setMakat] = React.useState("");
   const [kashir, setKashir] = React.useState("");
   const [data, setData] = React.useState<User[]>([]);
   const [carNumber, setCarNum] = React.useState("0");
@@ -138,7 +138,9 @@ const SignUpPage: React.FC = () => {
           </Select>
           <InputLabel sx={{ textAlign: "center" }}> בחר מקט</InputLabel>
           
-          <Autocomplete optionsArray={makats}/>
+          <Autocomplete optionsArray={makats} onChange={(event,value) =>{
+            setMakat(value)
+          }}/>
             
           
           <InputLabel sx={{ textAlign: "center" }}>בחר כשירות</InputLabel>

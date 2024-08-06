@@ -3,15 +3,17 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 interface ComboBoxProps {
     optionsArray: string[];
+    onChange: (event: any, value: any) => void; 
   }
   
-export default function ComboBox({ optionsArray }: ComboBoxProps) {
+export default function ComboBox({ optionsArray,onChange  }: ComboBoxProps) {
   
   
   return (
     <>
     
     <Autocomplete
+      onChange={onChange}
       disablePortal
       id="combo-box-demo"
       options={optionsArray}

@@ -89,8 +89,9 @@ export function forGrid(arr: Car[]): GridTemplate[] {
         }
        
         
-        myArray.pop()
-        return myArray
+        const filteredArray = myArray.filter(item => item !== undefined && item !=="adasd" );
+
+        return filteredArray
     }
     export function getNewMakats (arr:Car[]):string[]{
         let newArr = new Array<string>(arr.length)

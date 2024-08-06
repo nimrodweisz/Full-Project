@@ -38,7 +38,7 @@ const GridFull: React.FC<{rows: any[]}> = ({rows}) => {
                 },
               },
             }}
-            pageSizeOptions={[5]}
+            pageSizeOptions={[20]}
             disableRowSelectionOnClick
             
           />

@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/authMiddleware');
 const router = Router();
 router.post('/login',authController.handleLogin)
 const dashboardRouter = Router();
-router.use('/dashboard',dashboardRouter)
+router.use('/dashboard',requireAuth,dashboardRouter)
 dashboardRouter.use(requireAuth)
 
 

@@ -8,12 +8,15 @@ import "./App.css";
 import { DashBoard } from "./pages/DashBoard";
 import MainNavigation from "./components/MainNavigation";
 import AddCar from "./pages/AddCar";
+
 // import CarsContextProvider from "./store/cars-context";
 const router = createBrowserRouter([
+  
   {
     path: "/dashboard",
     element: <MainNavigation />,
     children: [
+      { path: "",element: <Navigate to="/login" replace /> },
       { path: ":userId", element: <DashBoard></DashBoard> },
       { path: "manager", element: <AddCar></AddCar> },
      
@@ -24,9 +27,12 @@ const router = createBrowserRouter([
   { path: "*", element: <Navigate to="/login" replace />, index: true }, // Catch-all route
 ]);
 function App() {
+  
   return (
+    
     // <CarsContextProvider>
-      <RouterProvider router={router} />
+    
+    <RouterProvider router={router} />
     // </CarsContextProvider>
   );
 }
