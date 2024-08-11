@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 interface ComboBoxProps {
     optionsArray: string[];
-    onChange: (event: any, value: any) => void; 
+    onChange: (event: React.SyntheticEvent<Element, Event>, value: string | null) => void; 
   }
   
 export default function ComboBox({ optionsArray,onChange  }: ComboBoxProps) {

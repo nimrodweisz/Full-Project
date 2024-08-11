@@ -1,5 +1,5 @@
 
-
+import { Paper } from '@mui/material';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
@@ -27,6 +27,7 @@ const GridFull: React.FC<{rows: any[]}> = ({rows}) => {
 
     return (
         <Box sx={{height:'60vh'}}>
+          <Paper sx={{height:'70vh'}}>
           <DataGrid
             rows={rows}
             columns={columns}
@@ -42,6 +43,7 @@ const GridFull: React.FC<{rows: any[]}> = ({rows}) => {
             disableRowSelectionOnClick
             
           />
+          </Paper>
         </Box>
       );
 

@@ -10,7 +10,7 @@ const authRoutes = require('./routes/authRoutes.js');
 
 const { dashboard } = require('./controllers/authController.js');
  const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'http://localhost',
   credentials: true 
 
 }
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect('mongodb://localhost:27017/ilcarsDB').then(() => console.log('Connected to MongoDB...'))
+mongoose.connect('mongodb://host.docker.internal:27017/ilcarsDB').then(() => console.log('Connected to MongoDB...'))
 
 .catch(err => console.error('Could not connect to MongoDB...', err));
 

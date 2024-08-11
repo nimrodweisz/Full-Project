@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import {
@@ -79,19 +79,26 @@ export const DashBoard: React.FC<DashBoardProps> = ({children}) => {
     <>
       <Box sx={{ display: "grid", gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr', height: '100vh' }}>
         <Box sx={{height:'25vh'}}>
+           <Paper sx={{maxWidth:'5008px'}}>
           <Box sx={{ height: "25vh", alignContent: "left" }}>
+           
             <Clock value={realValue} />
+            
           </Box>
-
+          </Paper>
           <Box sx={{ height: "70vh", width: "100vh" }}>
+            <Paper>
             <BarChartComponent datasetData={makats} labels={stringsOfLabels} />
+            </Paper>
           </Box>
         </Box>
 
-        
         <Box sx={{ width:'800px', position: 'absolute', top: '100px', left: '75%', transform: 'translateX(-50%)' }}>
+          
           <GridData rows={gridValues}  />
+          
         </Box>
+        
        <Box sx={{position:'absolute',top:'800px',display:'flex', flexDirection:'row',justifyContent:'space-between',width:'95%'}}>
         <Box><Cards whatIs={`${realValue}%`} headLine='אחוז הכלים הכשירים'/></Box>
         <Box><Cards whatIs={makats.length} headLine="כמות המקטים"/></Box>
