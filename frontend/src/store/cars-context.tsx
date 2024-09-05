@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Car } from "../Utils/thingsTypes";
-import { useNavigate } from "react-router-dom";
+
 interface DashboardContextProps {
     dashboardData: Car[];
     status: number; // Added status property to the interface

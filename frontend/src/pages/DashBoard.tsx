@@ -99,7 +99,7 @@ export const DashBoard: React.FC<DashBoardProps> = ({children}) => {
           
         </Box>
         
-       <Box sx={{position:'absolute',top:'800px',display:'flex', flexDirection:'row',justifyContent:'space-between',width:'95%'}}>
+       <Box sx={{position:'absolute',top:'950px',display:'flex', flexDirection:'row',justifyContent:'space-between',width:'95%'}}>
         <Box><Cards whatIs={`${realValue}%`} headLine='אחוז הכלים הכשירים'/></Box>
         <Box><Cards whatIs={makats.length} headLine="כמות המקטים"/></Box>
         <Box><Cards whatIs={howMuch} headLine="כמות הכלים הכשירים"/></Box>

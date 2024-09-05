@@ -24,3 +24,11 @@ export type Car = {
  export interface CarsContextType {
     carDatas?: Car[];
 }
+export {};
+
+declare global {
+  interface Window {
+    _paq: [string, ...any[]][];
+  }
+}
+

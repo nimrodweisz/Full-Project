@@ -12,11 +12,12 @@ import {
 import { User } from "../Utils/thingsTypes";
 import Toast from "../toastStaff/Toast";
 import useToast from "../toastStaff/useToast";
-import { useNavigate } from "react-router-dom";
+import { Await, useNavigate } from "react-router-dom";
 import { getCarsMakats, getMakats } from "../Utils/functions";
 import { useDashboard } from "../store/cars-context";
 import Autocomplete from '../components/AutoComplete';
-const SignUpPage: React.FC = () => {
+import { reforwardRef } from "react-chartjs-2/dist/utils";
+const SignUpPage: React.FC =  () => {
   const { isOpen, showToast, text, textType, setIsOpen } = useToast();
 
   const { dashboardData, updateCarId } = useDashboard();
@@ -25,17 +26,19 @@ const SignUpPage: React.FC = () => {
     updateCarId("8604191");
   }, []);
 
-  const fetch_method = async () => {
+  const  fetch_method = async  () => {
     const resData = await fetch("http://localhost:5000/dashboard/manager", {
       credentials: "include",
     });
-    if (resData.status === 401 || resData.status === 403) {
-      navigate(-1);
-      return;
-    } else {
+    if (resData.status === 200) {
       const data = await resData.json();
-
       setData(data);
+      
+    } else {
+      navigate(-1)
+      return
+
+      
     }
   };
 
@@ -64,7 +67,7 @@ const SignUpPage: React.FC = () => {
 
         body: JSON.stringify(formData),
       });
-
+     
       if (response.status === 400) {
         console.log("problem");
         showToast("There is already car with the same number", "error");
