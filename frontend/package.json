@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@craco/craco": "^7.1.0",
     "@datapunt/matomo-tracker-react": "^0.5.1",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
@@ -37,11 +38,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
+  "start": "craco start",
+  "build": "craco build --source-map false",  
+  "test": "craco test",
+  "eject": "react-scripts eject"
+},
+
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -13,13 +13,20 @@ const createToken = (id) => {
 
 module.exports.handleLogin = async (req, res) => {
   const { pernr } = req.body;
- 
+  
+
   try {
     const user = await User.login(pernr);
+    console.log(user)
       const token = createToken(user._id);
-      res.cookie('jwt',token,{maxAge:maxAge*1000})    
-      res.json({ message: 'Logged in successfully' });
+      console.log(user)
       
+    
+      res.cookie('jwt',token,{maxAge:maxAge*1000})    
+      res.json({
+         message: 'Logged in successfully',
+         gdud: user.gdud
+      });
      res.status(201).json({user:user._id})
   } catch (err) {
    
